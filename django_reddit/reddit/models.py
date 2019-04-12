@@ -8,8 +8,8 @@ class Post(models.Model):
     content = models.TextField(max_length=1000)
     site_url = models.TextField(max_length=1000)
     vote_total = models.TextField(max_length=1000)
-    # user = models.ForeignKey(
-    #     User, on_delete='CASCADE', related_name='users')
+    user = models.ForeignKey(
+        User, on_delete='CASCADE', related_name='users')
 
 
 def __str__(self):
@@ -34,6 +34,15 @@ class Comment_Vote(models.Model):
     comment = models.ForeignKey(
         Comment, on_delete='CASCADE', related_name='comment_votes')
     value = models.CharField(max_length=1000)
+
+
+def __str__(self):
+    return self.user
+
+
+class Moderator(models.Model):
+    user = models.ForeignKey(
+        User, on_delete='CASCADE', related_name='moderators')
 
 
 def __str__(self):
