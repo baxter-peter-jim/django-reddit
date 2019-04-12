@@ -14,3 +14,17 @@ class Post(models.Model):
 
 def __str__(self):
     return self.created_at
+
+ # Comment Model
+
+
+class Comment(models.Model):
+    created_at = models.CharField(max_length=400)
+    content = models.CharField(max_length=400)
+    vote_total = models.CharField(max_length=400)
+    user = models.ForeignKey(
+        User, on_delete='CASCADE', related_name='comments'
+    )
+    post = models.ForeignKey(
+        Post, on_delete='CASCADE', related_name='comments'
+    )
