@@ -1,21 +1,6 @@
 from django.db import models
 
 
-class Post(models.Model):
-    created_at = models.CharField(max_length=1000)
-    title = models.TextField(max_length=1000)
-    picture = models.TextField(max_length=1000)
-    content = models.TextField(max_length=1000)
-    site_url = models.TextField(max_length=1000)
-    vote_total = models.TextField(max_length=1000)
-    user = models.ForeignKey(
-        User, on_delete='CASCADE', related_name='users')
-
-
-def __str__(self):
-    return self.created_at
-
-
 class User(models.Model):
     email = models.CharField(max_length=1000)
     password = models.TextField(max_length=1000)
@@ -24,6 +9,21 @@ class User(models.Model):
 
 def __str__(self):
     return self.email
+
+
+class Post(models.Model):
+    created_at = models.CharField(max_length=1000)
+    title = models.TextField(max_length=1000)
+    picture = models.TextField(max_length=1000)
+    content = models.TextField(max_length=1000)
+    site_url = models.TextField(max_length=1000)
+    vote_total = models.TextField(max_length=1000)
+    user = models.ForeignKey(
+        User, on_delete='CASCADE', related_name='posts')
+
+
+def __str__(self):
+    return self.created_at
 
 
 class Save(models.Model):
@@ -36,6 +36,22 @@ class Save(models.Model):
 
 def __str__(self):
     return self.user
+
+
+class Comment(models.Model):
+    created_at = models.CharField(max_length=400)
+    content = models.CharField(max_length=400)
+    vote_total = models.CharField(max_length=400)
+    user = models.ForeignKey(
+        User, on_delete='CASCADE', related_name='comments'
+    )
+    post = models.ForeignKey(
+        Post, on_delete='CASCADE', related_name='comments'
+    )
+
+
+def __str__(self):
+    return self.content
 
 
 class Comment_Vote(models.Model):
@@ -58,22 +74,6 @@ class Moderator(models.Model):
 def __str__(self):
     return self.user
  # Comment Model
-
-
-class Comment(models.Model):
-    created_at = models.CharField(max_length=400)
-    content = models.CharField(max_length=400)
-    vote_total = models.CharField(max_length=400)
-    user = models.ForeignKey(
-        User, on_delete='CASCADE', related_name='comments'
-    )
-    post = models.ForeignKey(
-        Post, on_delete='CASCADE', related_name='comments'
-    )
-
-
-def __str__(self):
-    return self.content
 
 
 class Profile(models.Model):

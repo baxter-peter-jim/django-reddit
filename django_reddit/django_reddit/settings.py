@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'reddit_db',
         'USER': 'reddituser',
         'PASSWORD': 'reddit',
-        'HOST': 'localhost',
+        'HOST': 'localhost'
     }
 }
 
