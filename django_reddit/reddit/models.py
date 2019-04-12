@@ -14,3 +14,27 @@ class Post(models.Model):
 
 def __str__(self):
     return self.created_at
+
+
+class Save(models.Model):
+    user = models.ForeignKey(
+        User, on_delete='CASCADE', related_name='save')
+    post = models.ForeignKey(
+        Post, on_delete='CASCADE', related_name='save')
+    created_at = models.CharField(max_length=1000)
+
+
+def __str__(self):
+    return self.user
+
+
+class Comment_Vote(models.Model):
+    user = models.ForeignKey(
+        User, on_delete='CASCADE', related_name='comment_vote')
+    comment = models.ForeignKey(
+        Comment, on_delete='CASCADE', related_name='comment_vote')
+    value = models.CharField(max_length=1000)
+
+
+def __str__(self):
+    return self.user
