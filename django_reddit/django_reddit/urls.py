@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from reddit import views as reddit_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('reddit.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', reddit_views.sign_up, name='signup'),
 ]
