@@ -1,0 +1,10 @@
+{% extends 'reddit/base.html' %}
+
+{% block content %}
+<h1 class='text-center'>New Post</h1>
+<form method="POST" class="song-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <Button type="submit" class="save btn btn-default">Save</Button>
+</form>
+{% endblock %}

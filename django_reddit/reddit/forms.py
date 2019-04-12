@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Comment, User, Profile, Save, Post_Vote, Comment_Vote, Moderator
+from .models import Post, Comment, Profile, Save, Post_Vote, Comment_Vote, Moderator
 
 
 class PostForm(forms.ModelForm):
@@ -13,12 +13,6 @@ class CommentForm(forms.ModelForm):
     class Meta:  # This Meta class is something you will see every now and then in Python.  It usually contains config info.
         model = Comment
         fields = ('created_at', 'content', 'vote_total', 'user', 'post')
-
-
-class UserForm(forms.ModelForm):
-    class Meta:  # This Meta class is something you will see every now and then in Python.  It usually contains config info.
-        model = User
-        fields = ('email', 'password', 'username')
 
 
 class ProfileForm(forms.ModelForm):

@@ -1,0 +1,14 @@
+{% extends 'reddit/base.html' %}
+
+{% block content %}
+<h2 style='font-size:35px;margin-top:45px;'>Comments <a href="{% url 'comment_new' %}">(+)</a></h2>
+<ul>
+    {% for comment in comments %}
+    <li>
+        <a href="{% url 'comment_show' pk=comment.pk %}" style='font-size:35px'
+            class='text-center'>{{ comment.content }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
