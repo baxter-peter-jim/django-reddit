@@ -18,9 +18,9 @@ def __str__(self):
 
 class Save(models.Model):
     user = models.ForeignKey(
-        User, on_delete='CASCADE', related_name='save')
+        User, on_delete='CASCADE', related_name='saves')
     post = models.ForeignKey(
-        Post, on_delete='CASCADE', related_name='save')
+        Post, on_delete='CASCADE', related_name='saves')
     created_at = models.CharField(max_length=1000)
 
 
@@ -30,9 +30,9 @@ def __str__(self):
 
 class Comment_Vote(models.Model):
     user = models.ForeignKey(
-        User, on_delete='CASCADE', related_name='comment_vote')
+        User, on_delete='CASCADE', related_name='comment_votes')
     comment = models.ForeignKey(
-        Comment, on_delete='CASCADE', related_name='comment_vote')
+        Comment, on_delete='CASCADE', related_name='comment_votes')
     value = models.CharField(max_length=1000)
 
 
