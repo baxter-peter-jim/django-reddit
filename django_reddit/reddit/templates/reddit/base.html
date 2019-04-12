@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <head>
+        <title>Reddit</title>
+        <link rel="stylesheet" href="{% static 'css/reddit.css' %}">
+    </head>
+
+    <body class='container text-center' style='background-color: #e3e9ef;'>
+        <h1 class='text-center' style='font-size:70px;font-weight:bold;color:#3a6591;'>Reddit</h1>
+
+
+        {% block content %}
+        {% endblock %}
+    </body>
+
+</html>
