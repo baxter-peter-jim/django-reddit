@@ -16,6 +16,16 @@ def __str__(self):
     return self.created_at
 
 
+class User(models.Model):
+    email = models.CharField(max_length=1000)
+    password = models.TextField(max_length=1000)
+    username = models.TextField(max_length=1000)
+
+
+def __str__(self):
+    return self.email
+
+
 class Save(models.Model):
     user = models.ForeignKey(
         User, on_delete='CASCADE', related_name='saves')
