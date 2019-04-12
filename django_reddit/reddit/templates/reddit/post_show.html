@@ -1,0 +1,18 @@
+{% extends 'reddit/base.html' %}
+
+{% block content %}
+<h2 style='font-size:35px;margin-top:45px;'>{{ post.created_at }} <a href="{% url 'post_edit' pk=post.pk %}">(edit)</a>
+</h2>
+
+<h3>Comments <a href="{% url 'comment_new' %}">(+)</a></h3>
+<ul>
+    {% for comment in post.comments.all %}
+    <li>
+        <a href="{% url 'comment_show' pk=comment.pk %}">
+            {{ comment.created_at }}-{{ comment.content }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<h2><a href="{% url 'post_delete' pk=post.pk %}">(delete)</a></h2>
+{% endblock %}

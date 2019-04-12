@@ -1,16 +1,6 @@
 from django.db import models
 
 
-class User(models.Model):
-    email = models.CharField(max_length=1000)
-    password = models.TextField(max_length=1000)
-    username = models.TextField(max_length=1000)
-
-
-def __str__(self):
-    return self.email
-
-
 class Post(models.Model):
     created_at = models.CharField(max_length=1000)
     title = models.TextField(max_length=1000)
